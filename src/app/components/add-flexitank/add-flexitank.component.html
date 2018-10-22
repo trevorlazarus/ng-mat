@@ -1,0 +1,57 @@
+<!-- <div class="card">
+  <div class="card card-content">
+    <span class="card-title">Add Flexitank</span>
+    <form (ngSubmit)="onSubmit()" class="col s6">
+      <div class="row">
+        <mat-card>
+          <input type="text" placeholder="Add Flexitank Number" [(ngModel)]="flexitank.flexitank_number" name="flexitank_number">
+          <label>Flexitank Number</label>
+       
+          <input type="text" placeholder="Add " [(ngModel)]="flexitank.place_of_fitting" name="place_of_fitting">
+          <label>Place of Fitting</label>
+    
+        <input type="submit" value="Submit" class="btn"></mat-card>
+        
+      </div>
+    </form>
+  </div>
+</div> -->
+
+<div>
+  <mat-card class="center">
+      <form (ngSubmit)="onSubmit()" class="example-form">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Flexitank Number" [(ngModel)]="flexitank.flexitank_number" name="flexitank_number">
+          </mat-form-field>
+        
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder=" Place of Fitting" [(ngModel)]="flexitank.place_of_fitting" name="place_of_fitting">
+            </mat-form-field>
+      
+           
+            <button  mat-raised-button color="primary" (click)="submit" style="margin: 30px" >Add Flexitank</button>
+            
+            
+        </form>
+  </mat-card>
+  </div>
+
+<div *ngIf="flexitanks?.length > 0; else noFlexitanks">
+  
+  
+<!--   
+  <ul *ngFor="let flexitank of flexitanks" class="collection">
+    <li  class="collection-item"><strong>flexitank#: </strong>{{flexitank.flexitank_number}} | <strong>Place of Fitting </strong>{{flexitank.place_of_fitting}}  
+    </li>
+  </ul>
+   -->
+    <mat-list *ngFor="let flexitank of flexitanks">
+    <mat-list-item> <strong>flexitank#: </strong>{{flexitank.flexitank_number}} | <strong> Place of Fitting </strong>{{flexitank.place_of_fitting}}   </mat-list-item>
+   </mat-list>
+</div>
+
+
+<ng-template #noFlexitank>
+    <hr>
+    <h5>There are no flexitanks to list</h5>
+  </ng-template>
